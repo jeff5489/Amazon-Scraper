@@ -8,12 +8,9 @@ app.use(cors({
 }));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('You have reached app.js of the web scraper.')
 })
 
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`)
 })
-
-//test change
-//test change again

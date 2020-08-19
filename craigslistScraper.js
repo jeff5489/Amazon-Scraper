@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 (async () => {
     try {
         const browser = await puppeteer.launch({
-            headless: false
+            // headless: false
         });
         const page = await browser.newPage();
         const timeout = 60000

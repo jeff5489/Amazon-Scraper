@@ -3,9 +3,7 @@ const cors = require('cors');
 const app = express()
 const PORT = process.env.PORT || 5000
 
-app.use(cors({
-  origin: process.env.CORS_ORIGIN,
-}));
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('You have reached app.js of the web scraper.')

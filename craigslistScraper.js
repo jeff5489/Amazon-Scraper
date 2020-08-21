@@ -16,10 +16,6 @@ const puppeteer = require('puppeteer');
           })){
             console.log('page.goto worked')
         }
-        // await page.type('#twotabsearchtextbox', 'iphone x 64gb'); // CHANGE
-        // await page.click('input.nav-input'); // CHANGE
-        // console.log("after page.click")
-        
 
         if(await page.waitForSelector('.result-info', { 
             visible: true
@@ -29,17 +25,15 @@ const puppeteer = require('puppeteer');
 
         const results = await page.evaluate(() => {
             console.log("inside results variable")
-            const allResults = Array.from(document.querySelectorAll('.result-row')); // CHANGE
+            const allResults = Array.from(document.querySelectorAll('.result-row')); 
             console.log(allResults)
             return allResults.map(data => {
-                if (data.querySelector(".result-title.hdrlnk")){ // CHANGE
+                if (data.querySelector(".result-title.hdrlnk")){ 
                     
                     return{
-                        name: data.querySelector(".result-title.hdrlnk").textContent, // CHANGE
-                        url: data.querySelector(".result-title.hdrlnk").href, // CHANGE
+                        name: data.querySelector(".result-title.hdrlnk").textContent, 
+                        url: data.querySelector(".result-title.hdrlnk").href, 
                         date: data.querySelector(".result-date").textContent
-                        // image: data.querySelector(".s-image").src, // CHANGE
-                        // price: parseFloat(data.querySelector(".a-price-whole").textContent.replace(/[,.]/g, m => (m === ',' ? '.' : ''))), // CHANGE
                     }
                 } else
                 console.log(".result-title hdrlnk wasn't there")
@@ -47,16 +41,14 @@ const puppeteer = require('puppeteer');
             .slice(0, 5);
         })
 
-        console.log('results: ' + results)
-        results.map(item => console.log("name: " + item.name))
+        // console.log('results: ' + results)
+        // results.map(item => console.log("name: " + item.name))
 
-        // console.log(results.sort((a, b) => {
-        //     return a.price - b.price;
-        // }));
+        // return results
+        return "Craigslist test return"
 
         await browser.close();
     }catch (error) {
-        // display errors
         console.log(error)
     }
 })();

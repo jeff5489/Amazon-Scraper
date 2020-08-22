@@ -1,9 +1,12 @@
 // const thing = "I'm a thing"
 
-function thing(){
-    return "testy return"
+const thing = function(req, res, next){
+    // req.thing = "testy string"
+    // return "testy string"
+    res.myData = {
+        "key" : "testy string"
+    }
+    next()
 }
-
-thing()
 
 module.exports = thing
